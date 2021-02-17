@@ -1,10 +1,10 @@
 # AppleMapsMiddleware
 
-This package provides middlewares for [SwiftRex](https://github.com/SwiftRex/SwiftRex) handeling MapKit related actions. 
+This package provides middlewares for [SwiftRex](https://github.com/SwiftRex/SwiftRex) handling *MapKit* related actions. 
 
 ## ETA 
 
-In order to estimate the time of arrival, the first step is to create a `Journey` object containing facts about the intended route. This object can then be used to create an  `ETAAction`, which, after it is dispatched, is handled by the eta middleware (`AppleMapsMiddleware.eta`) . The accompanying reducer (`AppleMapsReducer.eta`) updates the state (`ETAState`) accordingly.
+In order to estimate the time of arrival, the first step is to create a `Journey` object containing facts about the intended route. This object can then be used to create an `ETAAction`, which, after it is dispatched, is handled by the eta middleware (`AppleMapsMiddleware.eta`). The accompanying reducer (`AppleMapsReducer.eta`) updates the state (`ETAState`) accordingly.
 
 ```swift
 struct ETAAction {
@@ -23,7 +23,7 @@ enum ETAState {
 
 ## Local Search
 
-A dispatched `LocalSearchAction` object initilizes a map related search, which is conducted by `AppleMapsMiddleware.localSearch`  based on either a search query filtered by region and/or results types or a `MKLocalSearchCompletion` object. The `AppleMapsReducer.localSearch` object updates to current state with the resulting output of the middleware.
+A dispatched `LocalSearchAction` object initializes a map related search, which is conducted by `AppleMapsMiddleware.localSearch` based on either a search query filtered by region and/or results types or a `MKLocalSearchCompletion` object. The `AppleMapsReducer.localSearch` object updates to current state with the resulting output of the middleware.
 
 ```swift
 struct LocalSearchAction {
@@ -43,7 +43,7 @@ enum LocalSearchState {
 
 ## Local Search Completer
 
-The related  `AppleMapsMiddleware.localSearchCompleter` middleware provides completions for a query fragment received by an incoming `LocalSearchCompleterAction` object. Before the middleware sends completions, it needs to be *activated* (or: *initilized*) with an action containing result types, an optional points of interest filter and a possible region to reduce the search spectrum.
+The related `AppleMapsMiddleware.localSearchCompleter` middleware provides completions for a query fragment received by an incoming `LocalSearchCompleterAction` object. Before the middleware sends completions, it needs to be *activated* (or: *initialized*) with an action containing result types, an optional points of interest filter and a possible region to reduce the search spectrum.
 
 ```swift
 struct LocalSearchCompleterAction {
